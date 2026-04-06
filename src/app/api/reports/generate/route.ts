@@ -18,6 +18,7 @@ import {
   ShadingType,
   LevelFormat,
   VerticalAlign,
+  HeightRule,
 } from "docx";
 
 // A4 in DXA
@@ -353,7 +354,7 @@ export async function POST(request: NextRequest) {
           }),
           // Empty space for actual signatures (tall cells) - stamp goes in president cell
           new TableRow({
-            height: { value: 3000, rule: "atLeast" as unknown as typeof import("docx").HeightRule.AT_LEAST },
+            height: { value: 3000, rule: HeightRule.ATLEAST },
             children: [
               // President cell (RIGHT in RTL = first cell)
               new TableCell({
